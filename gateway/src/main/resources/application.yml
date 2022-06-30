@@ -1,0 +1,46 @@
+spring:
+  datasource:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://otimasqlserver.database.windows.net:1433;databaseName=OtimaSqlDB
+    username: xxxxxxxxxxxxxxxxx
+    password: xxxxxxxxxxxxxxxxx
+
+  jpa:
+    show-sql: true  
+    
+  application:
+    name: otimaweb    
+  
+  servlet:
+    multipart:
+      max-file-size: -1
+      max-request-size: -1 
+      
+      
+server :
+  port : 8080
+  max-http-header-size: 200000    
+
+zuul:
+  routes:
+     
+    otimaweb:
+      path: /otimaweb/**
+      url: http://localhost:8091/  
+    
+    integracao:
+      path: /integracao/**
+      url: http://localhost:8092/  
+      
+      
+  host:
+    connect-timeout-millis: 60000
+    socket-timeout-millis: 60000
+    
+    
+bezkoder:
+  app: 
+    jwtSecret : bezKoderSecretKey
+    jwtExpirationMs: 86400000
+  
+  

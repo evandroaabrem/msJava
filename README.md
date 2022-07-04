@@ -8,7 +8,7 @@ ma a geral</h1
 <b><h1>Pré-requisito</h1></b>
 Antes de rodar a aplicação é preciso garantir que as seguintes dependências estejam corretamente instaladas:
 
-Java 8<br>
+Java 11<br>
 PostgreSQL
 
 

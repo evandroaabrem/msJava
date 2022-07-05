@@ -30,6 +30,10 @@ zuul:
       path: /integracao/**
       url: http://localhost:8092/  
       
+    mensageria:
+      path: /mensageria/**
+      url: http://localhost:8093/  
+      
       
   host:
     connect-timeout-millis: 60000

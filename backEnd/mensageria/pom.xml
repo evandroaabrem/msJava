@@ -9,33 +9,41 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<groupId>br.com.otima</groupId>
-	<artifactId>otimaWeb</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>otimaWeb</name>
+	<artifactId>mensageria</artifactId>
+	<name>mensageria</name>
 	<packaging>jar</packaging>
 
 	<dependencies>
 		<dependency>
+			<groupId>br.com.otima</groupId>
+			<artifactId>IotOtima-util</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<artifactId>spring-boot-starter-amqp</artifactId>
+		</dependency>
+		<!-- JACKSON -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.datatype</groupId>
+			<artifactId>jackson-datatype-jsr310</artifactId>
 		</dependency>
 
 		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<scope>runtime</scope>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+				<exclusion>
+					<artifactId>jackson-databind</artifactId>
+					<groupId>com.fasterxml.jackson.core</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>br.com.otima</groupId>
-			<artifactId>IotOtima-util</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 
 	</dependencies>

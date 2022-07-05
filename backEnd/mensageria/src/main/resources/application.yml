@@ -1,0 +1,20 @@
+spring:
+  rabbitmq:
+   host: localhost
+   port: 5672
+   username: guest
+   password: guest
+          
+server :
+  port : 8093
+  max-http-header-size: 200000
+  
+  
+request:      
+      exchange:      
+        producerEx : ex.producer.exchange
+      routing-key:
+        producerReq : rq.producer.request
+        producerRes : rq.producer.response
+      dead-letter:
+       producerReq : dl.producer.request

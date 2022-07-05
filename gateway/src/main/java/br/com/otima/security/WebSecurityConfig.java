@@ -60,6 +60,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
       
       .antMatchers("/otimaweb/**").hasAnyAuthority(PerfilEnum.ROLE_ADMIN.getValueStatus(), PerfilEnum.ROLE_USER.getValueStatus())
       .antMatchers("/integracao/**").hasAnyAuthority(PerfilEnum.ROLE_ADMIN.getValueStatus(), PerfilEnum.ROLE_USER.getValueStatus())
+      .antMatchers("/mensageria/**").hasAnyAuthority(PerfilEnum.ROLE_ADMIN.getValueStatus(), PerfilEnum.ROLE_USER.getValueStatus())
       .anyRequest().authenticated();
     
     http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);

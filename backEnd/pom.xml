@@ -154,6 +154,7 @@
 		<module>util</module>
 		<module>otimaWeb</module>
 		<module>integracao</module>
+		<module>mensageria</module>
 	</modules>
 
 </project>

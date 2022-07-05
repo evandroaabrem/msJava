@@ -1,6 +1,6 @@
 <b><h1>Visão geral</h1></b>
 
-O projeto é uma a geral</h1><plicação back-end com objetivo de demonstrar a produtividade de construir APIs utilizando os frameworks Spring Cloud (Zuul, Eureka, etc), Spring Security, Spring Boot,  Spring MVC, Spring Data, Maven, Junit e Mockito em conjunto.
+O projeto é uma a geral</h1><plicação back-end com objetivo de demonstrar a produtividade de construir APIs utilizando os frameworks Spring Cloud (Zuul, Eureka, etc), Spring Security, Spring Boot,  Spring MVC, Spring Data, Mensageria com RabbitMQ, Maven, Junit e Mockito em conjunto.
 ma a geral</h1
 
 <b><h1>Setup da aplicação (local)</h1></b>
@@ -58,14 +58,28 @@ Finalizado esse passo, vamos iniciar a aplicação:
 
 mvn spring-boot:run
 
+
+cd msJava\backEnd\mensageria<br><br>
+É preciso compilar o código e baixar as dependências do projeto:
+
+mvn clean package
+
+Finalizado esse passo, vamos iniciar a aplicação:
+
+mvn spring-boot:run
+
 <b><h1>Setup da aplicação com docker</b></h1>
 
 <b><h1>Preparando ambiente</b></h1>
 
-Criar e executar container do Posgres
+Criar e executar container do Posgres <br>
 
 docker run -d --name postgres -e POSTGRES_DB=postgres -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 postgres
+<br><br>
 
+Criar e executar container do Mensageria com RabbitMQ <br>
+docker run -d -p 15672:15672 -p 5672:5672 --name rabbitmq rabbitmq:3-management
+<br><br>
 <b><h1>Setup Script</b></h1>
 
 CREATE TABLE perfil (
@@ -141,7 +155,7 @@ Segue abaixo as APIs disponíveis no projeto:<br>
 http://localhost:8080/api-auth/login<br>
 
 Espera atributos para serem critérios de busca no body da requisição, exemplo:<br>
-{ "username":"teste", "password":"123456"}<br><br>
+Body : { "username":"teste", "password":"123456"}<br><br>
 
 localhost:8080/otimaweb/api-poste?page={page}&size={size}<br>
 <i>Header</i><br>
@@ -152,7 +166,10 @@ localhost:8080/integracao/api-integracao/{CEP}<br>
     Authorization : Bearer XXXXXXXXXXX
 
 
-
+localhost:8080/mensageria/api-mensageria
+<i>Header</i><br>
+    Authorization : Bearer XXXXXXXXXXX
+Body : { "cpf": "4545"}
 
 
 

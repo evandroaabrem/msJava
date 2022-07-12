@@ -4,17 +4,19 @@ spring:
    port: 5672
    username: guest
    password: guest
+  
+  sleuth:   
+    sampler:      probability: 1.0 
           
 server :
   port : 8093
   max-http-header-size: 200000
   
-  
 request:      
       exchange:      
         producerEx : ex.producer.exchange
-      routing-key:
+      routingKey:
         producerReq : rq.producer.request
         producerRes : rq.producer.response
-      dead-letter:
+      deadLetter:
        producerReq : dl.producer.request

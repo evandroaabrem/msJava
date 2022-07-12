@@ -16,10 +16,10 @@ public class RabbitConfigurationExchangeQueue {
     @Value("${request.exchange.producerEx}")
     private String exchangeEx;  
     
-    @Value("${request.routing-key.producerReq}")
+    @Value("${request.routingKey.producerReq}")
     private String queueReq;
     
-    @Value("${request.dead-letter.producerReq}")
+    @Value("${request.deadLetter.producerReq}")
     private String deadLetterReq; 
 
     
@@ -29,7 +29,7 @@ public class RabbitConfigurationExchangeQueue {
         return new DirectExchange(exchangeEx);
     }
     
-    
+    @Bean
     Queue queueReq() {
         return  QueueBuilder.durable(queueReq)
                 .deadLetterExchange(exchangeEx)

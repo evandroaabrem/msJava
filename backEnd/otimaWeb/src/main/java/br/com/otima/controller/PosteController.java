@@ -16,10 +16,13 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.otima.dto.PosteDto;
 import br.com.otima.entity.PosteEntity;
 import br.com.otima.service.PosteService;
+import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @RequestMapping("/api-poste")
+@Slf4j
 public class PosteController {
+	
 
 	@Autowired
 	private PosteService posteService;
@@ -37,6 +40,7 @@ public class PosteController {
 
 	@GetMapping()
 	public ResponseEntity<Page<PosteDto>> getAll(Pageable pageable) {
+		log.info(String.valueOf(pageable.getPageSize()));
 		return ResponseEntity.ok().body(posteService.getAll(pageable));
 	}
 	

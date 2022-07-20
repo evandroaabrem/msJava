@@ -95,6 +95,12 @@ VALUES(5, 'Indianóplis', '2');
 
 <b><h1>Iniciando a aplicação</b></h1>
 
+
+cd msJava\backEnd<br><br>
+É preciso compilar o código e baixar as dependências do projeto:
+
+mvn clean install
+
 Localizar o arquivo docker-compose.yml e executar no prompt, os comandos abaixo: 
 <br>docker compose build<br>
 docker compose up -d<br>
@@ -111,10 +117,6 @@ Finalizado esse passo, vamos iniciar a aplicação:
 mvn spring-boot:run
 
 
-cd msJava\backEnd<br><br>
-É preciso compilar o código e baixar as dependências do projeto:
-
-mvn clean install
 
 <b><h1>APIs</b></h1>
 

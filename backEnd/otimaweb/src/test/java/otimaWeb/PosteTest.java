@@ -76,7 +76,7 @@ public class PosteTest {
         Pageable pageable = PageRequest.of(0, 5);
         List<PosteEntity> lstPoste = new ArrayList<>();
         lstPoste.add(getPosteEntity());
-        Page<PosteEntity> pagedResponse = new PageImpl(lstPoste);
+        Page<PosteEntity> pagedResponse = new PageImpl<PosteEntity>(lstPoste);
 		when(posteRepository.findPostePage(pageable)).thenReturn(pagedResponse);
 		assertThat(posteService.getAll(pageable)).isNotNull();
 

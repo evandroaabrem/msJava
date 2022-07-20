@@ -10,7 +10,6 @@
 	</parent>
 	<groupId>br.com.otima</groupId>
 	<artifactId>integracao</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<name>integracao</name>
 	<packaging>jar</packaging>
 
@@ -26,5 +25,32 @@
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-sleuth-zipkin</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-sleuth</artifactId>
+		</dependency>
+
 	</dependencies>
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>

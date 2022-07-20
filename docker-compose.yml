@@ -1,0 +1,104 @@
+version: '3.4'
+
+services:
+
+  eureka-server:
+    image: evandroaabreu/eurekaserver:0.0.1-SNAPSHOT
+    ports:
+      - 8761:8761
+    networks:
+      - teste-network
+    environment:
+      eureka.instance.hostname: eureka-server
+      eureka.client.serviceUrl.defaultZone: http://eureka-server:8761/eureka  
+      
+  zipkin-server:
+    image: openzipkin/zipkin:2.23.2
+    ports:
+      - 9411:9411
+    networks:
+      - teste-network
+             
+  rabbit-mq:
+    image: rabbitmq:3-management
+    ports:
+      - 5672:5672
+      - 15672:15672
+    networks:
+      - teste-network  
+      
+  mensageria:
+    image: evandroaabreu/mensageria
+    restart: always
+    build:
+      context: .
+      dockerfile: backEnd/mensageria/Dockerfile
+   
+    ports:
+      - 8093:8093
+
+    networks:
+      - teste-network           
+    
+    depends_on:
+      - eureka-server
+      - rabbit-mq
+      - zipkin-server
+      
+    environment:
+      SERVER.PORT: 8093
+      EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://eureka-server:8761/eureka
+      RABBIT_URI: amqp://guest:guest@rabbit-mq:5672
+      SPRING_RABBITMQ_HOST: rabbit-mq
+      SPRING.ZIPKIN.BASEURL: http://zipkin-server:9411/
+              
+              
+              
+  integracao:
+    image: evandroaabreu/integracao
+    restart: always
+    build:
+      context: .
+      dockerfile: backEnd/integracao/Dockerfile
+   
+    ports:
+      - 8092:8092
+
+    networks:
+      - teste-network           
+    
+    depends_on:
+      - eureka-server
+      - zipkin-server
+      
+    environment:
+      SERVER.PORT: 8092
+      EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://eureka-server:8761/eureka
+      SPRING.ZIPKIN.BASEURL: http://zipkin-server:9411/     
+ 
+ 
+  otimaweb:
+    image: evandroaabreu/otimaweb
+    restart: always
+    build:
+      context: .
+      dockerfile: backEnd/otimaweb/Dockerfile
+   
+    ports:
+      - 8091:8091
+
+    networks:
+      - teste-network           
+    
+    depends_on:
+      - eureka-server
+      - zipkin-server
+      
+    environment:
+      SERVER.PORT: 8091
+      EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://eureka-server:8761/eureka
+      SPRING.ZIPKIN.BASEURL: http://zipkin-server:9411/      
+               
+networks:
+   teste-network:
+     driver: bridge        

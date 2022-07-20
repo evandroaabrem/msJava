@@ -6,9 +6,9 @@ Outro ponto importante que vale a pena mencionar, estou utilizando docker(docker
 <b><h1>Setup da aplicação (local)</h1></b>
 
 <b><h1>Pré-requisito</h1></b>
-Antes de rodar a aplicação é preciso garantir que as seguintes dependências estejam corretamente instaladas:
+Antes de rodar a aplicação é preciso garantir que o seguinte software esteja corretamente instaladas:
 
-PostgreSQL
+Docker
 
 
 <b><h1>Instalação da aplicação</b></h1>  
@@ -16,32 +16,8 @@ PostgreSQL
   
   https://github.com/evandroaabrem/msJava.git
   
-  
-  Feito isso, acesse o projeto:
-
-cd msJava\gateway<br><br>
-É preciso compilar o código e baixar as dependências do projeto:
-
-mvn clean install
-
-Finalizado esse passo, vamos iniciar a aplicação:
-
-mvn spring-boot:run
-
-
-cd msJava\backEnd<br><br>
-É preciso compilar o código e baixar as dependências do projeto:
-
-mvn clean install
-
 
 <b><h1>Setup da aplicação com docker</b></h1>
-
-<b><h1>Iniciando os microserviços</b></h1>
-Localizar o arquivo docker-compose.yml e executar no prompt, os comandos abaixo: 
-<br>docker compose build<br>
-docker compose up -d<br>
-docker container ps<br><br>
 
 <b><h1>Preparando ambiente</b></h1>
 
@@ -116,6 +92,29 @@ INSERT INTO poste
 (id, bairro, identificacao)
 VALUES(5, 'Indianóplis', '2');
 
+
+<b><h1>Iniciando a aplicação</b></h1>
+
+
+cd msJava\gateway<br><br>
+É preciso compilar o código e baixar as dependências do projeto:
+
+mvn clean install
+
+Finalizado esse passo, vamos iniciar a aplicação:
+
+mvn spring-boot:run
+
+
+cd msJava\backEnd<br><br>
+É preciso compilar o código e baixar as dependências do projeto:
+
+mvn clean install
+
+Localizar o arquivo docker-compose.yml e executar no prompt, os comandos abaixo: 
+<br>docker compose build<br>
+docker compose up -d<br>
+docker container ps<br><br>
 
 <b><h1>APIs</b></h1>
 

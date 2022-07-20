@@ -1,6 +1,7 @@
 <b><h1>Visão geral</h1></b>
 
-O projeto é uma a geral aplicação back-end, utilizando os frameworks Spring Cloud (Zuul, Eureka, etc), Spring Security, Spring Boot,  Spring MVC, Spring Data, Mensageria com RabbitMQ, Maven, Junit e Mockito.
+O projeto é uma a geral aplicação back-end, utilizando os frameworks Spring Cloud (Zuul, Eureka, etc), Spring Security, Spring Boot,  Spring MVC, Spring Data, Mensageria com RabbitMQ, Maven, Junit e Mockito.<br>
+Outro ponto importante que vale a pena mencionar, estou utilizando docker(dockerFile e dockercompose) nos microserviços.
 
 <b><h1>Setup da aplicação (local)</h1></b>
 
@@ -37,7 +38,8 @@ mvn clean install
 <b><h1>Setup da aplicação com docker</b></h1>
 
 <b><h1>Iniciando os microserviços</b></h1>
-<br><br>docker compose build<br>
+Localizar o arquivo docker-compose.yml e executar no prompt, os comandos abaixo: 
+<br>docker compose build<br>
 docker compose up -d<br>
 docker container ps<br><br>
 
@@ -46,11 +48,7 @@ docker container ps<br><br>
 Criar e executar container do Posgres <br>
 
 docker run -d --name postgres -e POSTGRES_DB=postgres -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 postgres
-<br><br>
 
-Criar e executar container do Mensageria com RabbitMQ <br>
-docker run -d -p 15672:15672 -p 5672:5672 --name rabbitmq rabbitmq:3-management
-<br><br>
 <b><h1>Setup Script</b></h1>
 
 CREATE TABLE perfil (

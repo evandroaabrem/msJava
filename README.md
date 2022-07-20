@@ -7,7 +7,6 @@ O projeto é uma a geral aplicação back-end, utilizando os frameworks Spring C
 <b><h1>Pré-requisito</h1></b>
 Antes de rodar a aplicação é preciso garantir que as seguintes dependências estejam corretamente instaladas:
 
-Java 11<br>
 PostgreSQL
 
 
@@ -22,52 +21,25 @@ PostgreSQL
 cd msJava\gateway<br><br>
 É preciso compilar o código e baixar as dependências do projeto:
 
-mvn clean package
+mvn clean install
 
 Finalizado esse passo, vamos iniciar a aplicação:
 
 mvn spring-boot:run
 
 
-cd msJava\eurekaServer<br><br>
+cd msJava\backEnd<br><br>
 É preciso compilar o código e baixar as dependências do projeto:
 
-mvn clean package
+mvn clean install
 
-Finalizado esse passo, vamos iniciar a aplicação:
-
-mvn spring-boot:run
-
-
-cd msJava\backEnd\integracao<br><br>
-É preciso compilar o código e baixar as dependências do projeto:
-
-mvn clean package
-
-Finalizado esse passo, vamos iniciar a aplicação:
-
-mvn spring-boot:run
-
-cd msJava\backEnd\otimaWeb<br><br>
-É preciso compilar o código e baixar as dependências do projeto:
-
-mvn clean package
-
-Finalizado esse passo, vamos iniciar a aplicação:
-
-mvn spring-boot:run
-
-
-cd msJava\backEnd\mensageria<br><br>
-É preciso compilar o código e baixar as dependências do projeto:
-
-mvn clean package
-
-Finalizado esse passo, vamos iniciar a aplicação:
-
-mvn spring-boot:run
 
 <b><h1>Setup da aplicação com docker</b></h1>
+
+<b><h1>Iniciando os microserviços</b></h1>
+<br><br>docker compose build<br>
+docker compose up -d<br>
+docker container ps<br><br>
 
 <b><h1>Preparando ambiente</b></h1>
 

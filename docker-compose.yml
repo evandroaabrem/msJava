@@ -75,7 +75,29 @@ services:
       SERVER.PORT: 8092
       EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://eureka-server:8761/eureka
       SPRING.ZIPKIN.BASEURL: http://zipkin-server:9411/     
+ 
+ 
+  otimaweb:
+    image: evandroaabreu/otimaweb
+    restart: always
+    build:
+      context: .
+      dockerfile: backEnd/otimaweb/Dockerfile
+   
+    ports:
+      - 8091:8091
+
+    networks:
+      - teste-network           
+    
+    depends_on:
+      - eureka-server
+      - zipkin-server
       
+    environment:
+      SERVER.PORT: 8091
+      EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://eureka-server:8761/eureka
+      SPRING.ZIPKIN.BASEURL: http://zipkin-server:9411/      
                
 networks:
    teste-network:

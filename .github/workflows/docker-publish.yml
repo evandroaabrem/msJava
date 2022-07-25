@@ -25,7 +25,11 @@ jobs:
         
       - name: Build Gateway Jar
         working-directory: ./gateway
-        run: mvn clean package -DskipTests           
+        run: mvn clean package -DskipTests    
+        
+      - name: Build mensageria Jar
+        working-directory: ./backEnd/mensageria
+        run: mvn clean package         
         
       - name: Docker Compose Build
         working-directory: ./

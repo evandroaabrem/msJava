@@ -28,9 +28,6 @@ jobs:
         run: mvn clean package -DskipTests    
         
       - name: Build Jar
-        working-directory: ./backEnd/
+        working-directory: ./backEnd/util
         run: mvn clean install         
-        
-      - name: Docker Compose Build
-        working-directory: ./
-        run: docker-compose build        
+ 

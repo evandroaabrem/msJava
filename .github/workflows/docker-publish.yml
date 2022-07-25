@@ -25,4 +25,8 @@ jobs:
         
       - name: Build Gateway Jar
         working-directory: ./gateway
-        run: mvn clean package -DskipTests               
+        run: mvn clean package -DskipTests           
+        
+      - name: Docker Compose Build
+        working-directory: ./
+        run: docker-compose build        

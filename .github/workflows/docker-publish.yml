@@ -21,5 +21,8 @@ jobs:
               distribution: 'adopt'
       - name: Build Eureka Naming Server Container Image
         working-directory: ./eurekaServer
-        run: mvn spring-boot:build-image -DskipTests              
-              
+        run: mvn spring-boot:build-image -DskipTests 
+        
+      - name: Build Gateway Jar
+        working-directory: ./gateway
+        run: mvn clean package -DskipTests               

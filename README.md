@@ -1,14 +1,14 @@
 <b><h1>Visão geral</h1></b>
 
-O projeto é uma a geral aplicação back-end, utilizando os frameworks Spring Cloud (Zuul, Eureka, etc), Spring Security, Spring Boot,  Spring MVC, Spring Data, Mensageria com RabbitMQ, Maven, Junit e Mockito.
+O projeto é uma a geral aplicação back-end, utilizando os frameworks Spring Cloud (Zuul, Eureka, etc), Spring Security, Spring Boot,  Spring MVC, Spring Data, Mensageria com RabbitMQ, Maven, Junit e Mockito.<br>
+Outro ponto importante que vale a pena mencionar, estou utilizando docker(dockerFile e dockercompose) nos microserviços.
 
 <b><h1>Setup da aplicação (local)</h1></b>
 
 <b><h1>Pré-requisito</h1></b>
-Antes de rodar a aplicação é preciso garantir que as seguintes dependências estejam corretamente instaladas:
+Antes de rodar a aplicação é preciso garantir que o seguinte software esteja corretamente instaladas:
 
-Java 11<br>
-PostgreSQL
+Docker
 
 
 <b><h1>Instalação da aplicação</b></h1>  
@@ -16,56 +16,6 @@ PostgreSQL
   
   https://github.com/evandroaabrem/msJava.git
   
-  
-  Feito isso, acesse o projeto:
-
-cd msJava\gateway<br><br>
-É preciso compilar o código e baixar as dependências do projeto:
-
-mvn clean package
-
-Finalizado esse passo, vamos iniciar a aplicação:
-
-mvn spring-boot:run
-
-
-cd msJava\eurekaServer<br><br>
-É preciso compilar o código e baixar as dependências do projeto:
-
-mvn clean package
-
-Finalizado esse passo, vamos iniciar a aplicação:
-
-mvn spring-boot:run
-
-
-cd msJava\backEnd\integracao<br><br>
-É preciso compilar o código e baixar as dependências do projeto:
-
-mvn clean package
-
-Finalizado esse passo, vamos iniciar a aplicação:
-
-mvn spring-boot:run
-
-cd msJava\backEnd\otimaWeb<br><br>
-É preciso compilar o código e baixar as dependências do projeto:
-
-mvn clean package
-
-Finalizado esse passo, vamos iniciar a aplicação:
-
-mvn spring-boot:run
-
-
-cd msJava\backEnd\mensageria<br><br>
-É preciso compilar o código e baixar as dependências do projeto:
-
-mvn clean package
-
-Finalizado esse passo, vamos iniciar a aplicação:
-
-mvn spring-boot:run
 
 <b><h1>Setup da aplicação com docker</b></h1>
 
@@ -74,11 +24,7 @@ mvn spring-boot:run
 Criar e executar container do Posgres <br>
 
 docker run -d --name postgres -e POSTGRES_DB=postgres -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 postgres
-<br><br>
 
-Criar e executar container do Mensageria com RabbitMQ <br>
-docker run -d -p 15672:15672 -p 5672:5672 --name rabbitmq rabbitmq:3-management
-<br><br>
 <b><h1>Setup Script</b></h1>
 
 CREATE TABLE perfil (
@@ -145,6 +91,31 @@ VALUES(4, 'Mooca', 'viviii');
 INSERT INTO poste
 (id, bairro, identificacao)
 VALUES(5, 'Indianóplis', '2');
+
+
+<b><h1>Iniciando a aplicação</b></h1>
+
+
+cd msJava\backEnd<br><br>
+É preciso compilar o código e baixar as dependências do projeto:
+
+mvn clean install
+
+Localizar o arquivo docker-compose.yml e executar no prompt, os comandos abaixo: 
+<br>docker compose build<br>
+docker compose up -d<br>
+docker container ps<br><br>
+
+Em seguida, ir no seguinte diretório:<br><br>
+cd msJava\gateway<br><br>
+É preciso compilar o código e baixar as dependências do projeto:
+
+mvn clean install
+
+Finalizado esse passo, vamos iniciar a aplicação:
+
+mvn spring-boot:run
+
 
 
 <b><h1>APIs</b></h1>

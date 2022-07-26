@@ -27,7 +27,11 @@ jobs:
         working-directory: ./gateway
         run: mvn clean package -DskipTests    
         
-      - name: Build Jar
+      - name: Build Util Jar
         working-directory: ./backEnd/util
         run: mvn clean install         
- 
+
+      - name: Build integracao Jar
+        working-directory: ./backEnd/integracao
+        run: mvn clean install         
+

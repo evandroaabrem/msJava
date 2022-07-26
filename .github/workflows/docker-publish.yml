@@ -32,6 +32,6 @@ jobs:
         run: mvn clean install         
 
       - name: Build integracao Jar
-        working-directory: ./backEnd/integracao
+        working-directory: ./backEnd/
         run: mvn clean install         
 

@@ -28,6 +28,6 @@ jobs:
         run: mvn clean package -DskipTests    
 
       - name: Build ms Jar
-        working-directory: ./backEnd/
+        working-directory: ./ms/
         run: mvn clean install         
 

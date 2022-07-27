@@ -32,7 +32,7 @@ services:
     restart: always
     build:
       context: .
-      dockerfile: backEnd/mensageria/Dockerfile
+      dockerfile: ms/mensageria/Dockerfile
    
     ports:
       - 8093:8093
@@ -59,7 +59,7 @@ services:
     restart: always
     build:
       context: .
-      dockerfile: backEnd/integracao/Dockerfile
+      dockerfile: ms/integracao/Dockerfile
    
     ports:
       - 8092:8092
@@ -82,7 +82,7 @@ services:
     restart: always
     build:
       context: .
-      dockerfile: backEnd/otimaweb/Dockerfile
+      dockerfile: ms/otimaweb/Dockerfile
    
     ports:
       - 8091:8091

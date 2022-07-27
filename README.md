@@ -96,7 +96,7 @@ VALUES(5, 'Indianóplis', '2');
 <b><h1>Iniciando a aplicação</b></h1>
 
 
-cd msJava\backEnd<br><br>
+cd msJava\ms<br><br>
 É preciso compilar o código e baixar as dependências do projeto:
 
 mvn clean install

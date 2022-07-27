@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>br.com.otima</groupId>
-		<artifactId>IotOtima</artifactId>
+		<artifactId>iototima</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>integracao</artifactId>

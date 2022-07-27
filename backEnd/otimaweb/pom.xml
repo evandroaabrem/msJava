@@ -4,16 +4,27 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>br.com.otima.iotOtima</groupId>
-		<artifactId>IotOtima</artifactId>
+		<groupId>br.com.otima</groupId>
+		<artifactId>iototima</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<groupId>br.com.otima</groupId>
 	<artifactId>otimaweb</artifactId>
 	<name>otimaweb</name>
 	<packaging>jar</packaging>
 
 	<dependencies>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>6.1.0.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+		</dependency>
+
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

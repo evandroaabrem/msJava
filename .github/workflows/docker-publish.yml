@@ -19,7 +19,7 @@ jobs:
         with:
               java-version: '11'
               distribution: 'adopt'
-      - name: Build Eureka Naming Server Container Image
+      - name: Build Eureka Image
         working-directory: ./eurekaServer
         run: mvn spring-boot:build-image -DskipTests 
         
@@ -27,7 +27,7 @@ jobs:
         working-directory: ./gateway
         run: mvn clean package -DskipTests    
 
-      - name: Build integracao Jar
+      - name: Build ms Jar
         working-directory: ./backEnd/
         run: mvn clean install         
 

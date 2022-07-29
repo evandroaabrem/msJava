@@ -33,7 +33,7 @@ docker compose up -d<br>
 docker container ps<br><br>
 
 cd msJava\migration<br><br>
-É preciso compilar o código e baixar as dependências do projeto:
+É preciso compilar o código e baixar as dependências do projeto:<br><br>
 mvn clean install
 
 Finalizado esse passo, vamos iniciar a aplicação:

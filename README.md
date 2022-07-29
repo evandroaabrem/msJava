@@ -1,6 +1,6 @@
 <b><h1>Visão geral</h1></b>
 
-O projeto é uma a geral aplicação back-end, utilizando os frameworks Spring Cloud (Zuul, Eureka, etc), Spring Security, Spring Boot,  Spring MVC, Spring Data, Mensageria com RabbitMQ, Maven, Junit e Mockito.<br>
+O projeto é uma a geral aplicação back-end, utilizando os frameworks Spring Cloud (Zuul, Eureka, etc), Spring Security, Spring Boot,  Spring MVC, Spring Data, Mensageria com RabbitMQ, Maven, flyway, Junit e Mockito.<br>
 Outro ponto importante que vale a pena mencionar, estou utilizando docker(dockerFile e dockercompose) nos microserviços.
 
 <b><h1>Setup da aplicação (local)</h1></b>

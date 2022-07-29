@@ -1,0 +1,1 @@
+INSERT INTO postgres.usuario (id, email, nome, senha, username) VALUES(1, 'teste@teste.org.br', 'teste', '$2a$10$uFB4L1KjCrWri.DhJM933eec6McjcJn13Ek8uILd2mLN.7ZBGqnOG', 'teste');

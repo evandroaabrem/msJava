@@ -1,0 +1,1 @@
+INSERT INTO postgres.perfil (id, nome) VALUES(1, 'ROLE_USER'); INSERT INTO perfil (id, nome) VALUES(2, 'ROLE_ADMIN');

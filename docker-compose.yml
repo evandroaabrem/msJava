@@ -2,6 +2,18 @@ version: '3.4'
 
 services:
 
+  postgres-bd:
+    image: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - /docker/postgreSQL:/var/lib/postgresql/data 
+    networks:
+      - teste-network
+
   eureka-server:
     image: evandroaabreu/eurekaserver:0.0.1-SNAPSHOT
     ports:

@@ -1,0 +1,1 @@
+CREATE TABLE postgres.perfil ( id int NOT NULL, nome varchar(20) NULL, CONSTRAINT PK_perfil PRIMARY KEY (id) );

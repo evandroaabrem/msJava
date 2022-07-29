@@ -1,0 +1,1 @@
+CREATE TABLE postgres.poste ( id int NULL, bairro varchar(100), identificacao varchar(100), CONSTRAINT PK__usuario_perfil PRIMARY KEY (id) );

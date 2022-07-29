@@ -1,0 +1,1 @@
+CREATE TABLE postgres.usuario ( id int NOT NULL, email varchar(100), nome varchar(100), senha varchar(100), username varchar(100), CONSTRAINT PK_usuario PRIMARY KEY (id) );

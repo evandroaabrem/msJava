@@ -1,0 +1,1 @@
+INSERT INTO postgres.usuario_perfil (usuario_id, perfil_id) VALUES(1, 1); INSERT INTO postgres.usuario_perfil (usuario_id, perfil_id) VALUES(1, 2);

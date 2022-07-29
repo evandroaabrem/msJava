@@ -1,0 +1,1 @@
+ALTER TABLE postgres.usuario_perfil ADD CONSTRAINT FK22cgfn0obntlvqyfn33pyk24d FOREIGN KEY (perfil_id) REFERENCES perfil(id); ALTER TABLE postgres.usuario_perfil ADD CONSTRAINT FKnrjqnbylalt4ykxbcef24f57w FOREIGN KEY (usuario_id) REFERENCES usuario(id);

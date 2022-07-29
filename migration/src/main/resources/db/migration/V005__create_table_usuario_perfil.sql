@@ -1,0 +1,1 @@
+CREATE TABLE postgres.usuario_perfil ( usuario_id int NOT NULL, perfil_id int NOT NULL, CONSTRAINT PK_usuario_perfil PRIMARY KEY (usuario_id,perfil_id) );

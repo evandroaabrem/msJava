@@ -24,15 +24,15 @@ zuul:
      
     otimaweb:
       path: /otimaweb/**
-      url: http://host.docker.internal:8091/  
+      url: http://localhost:8091/  
     
     integracao:
       path: /integracao/**
-      url: http://host.docker.internal:8092/  
+      url: http://localhost:8092/  
       
     mensageria:
       path: /mensageria/**
-      url: http://host.docker.internal:8093/  
+      url: http://localhost:8093/  
       
       
   host:

@@ -88,7 +88,6 @@ services:
       EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://eureka-server:8761/eureka
       SPRING.ZIPKIN.BASEURL: http://zipkin-server:9411/     
  
- 
   otimaweb:
     image: evandroaabreu/otimaweb
     restart: always

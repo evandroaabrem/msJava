@@ -46,17 +46,9 @@ Caso tenha aparecido a mensagem abaixo, pode fechar o processo.<br><br>
 Obs. : Siginifica que os scripts foram executados com sucesso.
 
 
-Em seguida, ir no seguinte diretório:<br><br>
-cd msJava\gateway<br><br>
-É preciso compilar o código e baixar as dependências do projeto:
+Em seguida, baixar a imagem do gateway<br>
 
-mvn clean install
-
-Finalizado esse passo, vamos iniciar a aplicação:
-
-mvn spring-boot:run
-
-
+docker run -d -p 8080:8080 evandroaabreu/gatewayotima
 
 <b><h1>APIs</b></h1>
 

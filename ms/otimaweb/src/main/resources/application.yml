@@ -1,4 +1,10 @@
 spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://host.docker.internal:5432/postgres
@@ -18,3 +24,12 @@ spring:
 server :
   port : 8091
   max-http-header-size: 200000
+
+request:
+  exchange:
+    producerEx : ex.producer.exchange
+  routingKey:
+    producerReq : rq.producer.request
+    producerRes : rq.producer.response
+  deadLetter:
+    producerReq : dl.producer.request

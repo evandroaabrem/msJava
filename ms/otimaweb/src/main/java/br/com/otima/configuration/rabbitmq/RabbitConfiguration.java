@@ -1,4 +1,4 @@
-package br.com.otima.configuration;
+package br.com.otima.configuration.rabbitmq;
 
 import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;

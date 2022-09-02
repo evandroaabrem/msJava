@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import br.com.otima.service.PosteService;
+import br.com.otima.service.impl.PosteServiceImpl;
+import br.com.otima.specification.SpecificationTemplate;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -15,20 +18,23 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import br.com.otima.dto.PosteDto;
 import br.com.otima.entity.PosteEntity;
 import br.com.otima.repository.PosteRepository;
-import br.com.otima.service.PosteService;
-
 
 
 @RunWith(SpringRunner.class)
 public class PosteTest {
 
 	@InjectMocks
-	private PosteService posteService;
+	private SpecificationTemplate specificationTemplate;
+
+	@InjectMocks
+	///private PosteService1 posteService;
+	private PosteService posteService  = new PosteServiceImpl();;
 
 	@Mock
 	private PosteRepository posteRepository;
@@ -77,8 +83,11 @@ public class PosteTest {
         List<PosteEntity> lstPoste = new ArrayList<>();
         lstPoste.add(getPosteEntity());
         Page<PosteEntity> pagedResponse = new PageImpl<PosteEntity>(lstPoste);
-		when(posteRepository.findPostePage(pageable)).thenReturn(pagedResponse);
-		assertThat(posteService.getAll(pageable)).isNotNull();
+		Specification<PosteEntity> nullSpecification2 = Specification.where(null);
+
+		when(posteRepository.findAll(nullSpecification2, pageable)).thenReturn(pagedResponse);
+
+		assertThat(posteService.getAll(nullSpecification2, pageable)).isNotNull();
 
 
     }

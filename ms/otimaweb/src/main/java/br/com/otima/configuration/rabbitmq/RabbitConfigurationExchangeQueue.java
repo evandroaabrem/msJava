@@ -1,4 +1,4 @@
-package br.com.otima.configuration;
+package br.com.otima.configuration.rabbitmq;
 
 import org.springframework.amqp.core.*;
 import org.springframework.beans.factory.annotation.Value;

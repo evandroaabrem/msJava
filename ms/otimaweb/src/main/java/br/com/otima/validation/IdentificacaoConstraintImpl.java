@@ -12,9 +12,12 @@ public class IdentificacaoConstraintImpl implements ConstraintValidator<Identifi
 
     @Override
     public boolean isValid(String identificacao, ConstraintValidatorContext constraintValidatorContext) {
+        Boolean result = Boolean.TRUE;
+
         if(identificacao == null || identificacao.trim().isEmpty() || identificacao.contains(" ")){
-            return false;
+            result = Boolean.FALSE;
         }
-        return true;
+
+        return result;
     }
 }

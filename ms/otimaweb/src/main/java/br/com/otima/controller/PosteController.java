@@ -1,8 +1,12 @@
 package br.com.otima.controller;
 
+import br.com.otima.service.PosteService;
+import br.com.otima.specification.SpecificationTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -16,7 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.otima.dto.PosteDto;
 import br.com.otima.entity.PosteEntity;
-import br.com.otima.service.PosteService;
 
 
 @RestController
@@ -38,8 +41,9 @@ public class PosteController {
 	}
 
 	@GetMapping()
-	public ResponseEntity<Page<PosteDto>> getAll(Pageable pageable) {
-		return ResponseEntity.ok().body(posteService.getAll(pageable));
+	public ResponseEntity<Page<PosteDto>> getAll(SpecificationTemplate.PosteSpec spec,
+												 @PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.DESC)Pageable pageable) {
+		return ResponseEntity.ok().body(posteService.getAll(spec, pageable));
 	}
 	
 	

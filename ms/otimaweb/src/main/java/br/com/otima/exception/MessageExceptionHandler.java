@@ -1,6 +1,7 @@
 package br.com.otima.exception;
 
 import java.util.Date;
+import java.util.List;
 
 import lombok.Builder;
 import lombok.Data;
@@ -11,6 +12,7 @@ public class MessageExceptionHandler {
 	
 	private Date timesStamp;
 	private Integer status;
-	private String message;
+
+	private List<String> lstError;
 
 }

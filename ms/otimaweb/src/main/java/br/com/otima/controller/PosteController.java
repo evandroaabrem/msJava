@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.otima.dto.PosteDto;
 import br.com.otima.entity.PosteEntity;
 import br.com.otima.service.PosteService;
+
 
 @RestController
 @RequestMapping("/api-poste")
@@ -42,13 +44,13 @@ public class PosteController {
 	
 	
 	@PostMapping()
-	public ResponseEntity<PosteEntity> savePoste(@RequestBody PosteDto posteDto) {
+	public ResponseEntity<PosteEntity> savePoste(@Validated @RequestBody PosteDto posteDto) {
 		return ResponseEntity.ok().body(posteService.savePoste(posteDto));
 	}
 	
-	@PutMapping()
-	public ResponseEntity<PosteEntity> updatePoste(@RequestBody PosteDto posteDto) {
-		return ResponseEntity.ok().body(posteService.updatePoste(posteDto));
+	@PutMapping("/{id}")
+	public ResponseEntity<PosteEntity> updatePoste(@PathVariable(value = "id") Integer id,@Validated @RequestBody PosteDto posteDto) {
+		return ResponseEntity.ok().body(posteService.updatePoste(id, posteDto));
 	}
 
 }

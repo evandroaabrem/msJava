@@ -67,7 +67,7 @@ public class PosteTest {
 		when(posteRepository.save(posteEntity)).thenReturn(posteEntity);
 		Optional<PosteEntity> opPoste = Optional.of(posteEntity);
 		when(posteRepository.findById(1)).thenReturn(opPoste);
-		assertThat(posteService.updatePoste(posteDto)).isNotNull();
+		assertThat(posteService.updatePoste(posteEntity.getId(), posteDto)).isNotNull();
 
 	}
 	

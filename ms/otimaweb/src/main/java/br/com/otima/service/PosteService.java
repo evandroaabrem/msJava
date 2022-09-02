@@ -5,7 +5,6 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -51,20 +50,10 @@ public class PosteService {
 	}
 	
 	public PosteEntity savePoste(PosteDto posteDto) {
-		validacao(posteDto);
 		posteDto.setId(null);
 		return posteRepository.save(buildPosteEntity(posteDto));
 		
 	}
-
-	private void validacao(PosteDto posteDto) {
-		if ((StringUtils.isBlank(posteDto.getBairro())) || (posteDto.getBairro().equals(""))) 
-			throw new PosteException(MensagemGeralEnum.BAIRRONULLOOUEMBRANCO.getValueStatus());
-		
-		if ((posteDto.getIdentificacao() == null) || (posteDto.getIdentificacao().equals(""))) 
-			throw new PosteException(MensagemGeralEnum.IDENTIFNULLOOUEMBRANCO.getValueStatus());
-	}
-
 
 	public Page<PosteDto> getAll(Pageable pageable) {
 
@@ -94,9 +83,9 @@ public class PosteService {
 				.build();
 	}
 
-	public PosteEntity updatePoste(PosteDto posteDto) {
-		getPosteById(posteDto.getId());
-		validacao(posteDto);
+	public PosteEntity updatePoste(Integer id, PosteDto posteDto) {
+		getPosteById(id);
+		posteDto.setId(id);
 		return posteRepository.save(buildPosteEntity(posteDto));
 	}
 

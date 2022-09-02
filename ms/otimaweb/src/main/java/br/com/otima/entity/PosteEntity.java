@@ -9,6 +9,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
+import br.com.otima.validation.IdentificacaoConstraint;
 import org.hibernate.validator.constraints.Length;
 
 import lombok.AllArgsConstructor;
@@ -36,8 +37,9 @@ public class PosteEntity {
 	private String bairro;
 
 	@Column(name = "identificacao")
-	@NotEmpty(message="Mandatory completion")
-	@Length(min=2, max=100, message="The length must be between 2 and 100 characters")
+	@IdentificacaoConstraint
 	private String identificacao;
-	
+
+
+
 }
